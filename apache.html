@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-Tier App</title>
+</head>
+<body>
+    <h1>3-Tier Application</h1>
+    <form id="dataForm">
+        <label for="textbox">Enter Text:</label>
+        <input type="text" id="textbox" name="textbox" required>
+        <button type="button" onclick="submitData()">Submit</button>
+    </form>
+
+    <script>
+        function submitData() {
+            var textValue = document.getElementById('textbox').value;
+
+            // Use Fetch API to send data to the Flask backend
+            fetch('http://54.198.65.210:5000/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ textValue: textValue }),
+		        mode: 'cors'
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
