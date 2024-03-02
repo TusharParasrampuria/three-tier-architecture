@@ -1,0 +1,3 @@
+bucket="project-terraform-state-test"
+region="ap-south-1"
+encrypt=true

@@ -1,0 +1,9 @@
+**/.terraform*
+
+**/*.tfstate
+
+**/*.swp
+
+*.vscode
+
+**/artifacts
